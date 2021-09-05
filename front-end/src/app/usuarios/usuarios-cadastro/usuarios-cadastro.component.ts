@@ -24,7 +24,6 @@ export class UsuariosCadastroComponent implements OnInit {
     const dadosUsuario = this.dadosUsuarioForm.value;
     this.usuariosService.cadastrar(dadosUsuario).subscribe(
       resultado => {
-        console.log(resultado);
         this.router.navigate(['/usuarios']);
       },
       erro =>{
@@ -33,7 +32,6 @@ export class UsuariosCadastroComponent implements OnInit {
       } 
 
     );
-    //this.router.navigate(['/usuarios']);
   }
 
 }

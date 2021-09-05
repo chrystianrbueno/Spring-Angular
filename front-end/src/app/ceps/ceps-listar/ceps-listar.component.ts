@@ -17,7 +17,7 @@ export class CepsListarComponent implements OnInit {
   constructor(private cepsService: CepsService) { }
 
   ngOnInit() : void{
-    this.cepsService.getAllAdressess().subscribe(
+    this.cepsService.getAllAddressess().subscribe(
       dados => {
         this.enderecos = dados;
         console.log(dados);
@@ -29,7 +29,5 @@ export class CepsListarComponent implements OnInit {
     );
   }
 
-/*  Adicionar(){
-  }
-*/
+
 }

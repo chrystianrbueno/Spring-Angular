@@ -7,10 +7,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
+import { CepsCadastrarComponent } from './ceps-cadastrar/ceps-cadastrar.component';
 
 @NgModule({
   declarations: [
-    CepsListarComponent
+    CepsListarComponent,
+    CepsCadastrarComponent
   ],
   imports: [
     CommonModule,    

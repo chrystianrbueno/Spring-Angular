@@ -10,15 +10,15 @@ export class CepsService {
 
   constructor(private api: RestapiService) { }
 
-  public getAllAdressess(){
+  public getAllAddressess(){
     return this.api.get<Endereco[]>(CEPS_API_URL)
   }
 
-  public getAdress(cep: string){
+  public getAddress(cep: string){
     return this.api.get<Endereco>(`${CEPS_API_URL}/${cep}`)
   }
 
-  public setAdress(cep: Endereco){
+  public setAddress(cep: Endereco){
     return this.api.post<Endereco>(`${CEPS_API_URL}/add`,cep)
   }
 }

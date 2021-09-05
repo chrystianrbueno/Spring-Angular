@@ -1,0 +1,49 @@
+<form [formGroup]="dadosCepForm" (ngSubmit)="onSubmit()" novalidate>
+    <div>
+        <div>
+            <mat-form-field>
+                    <mat-label>CEP</mat-label>
+                    <input matInput formControlName="Cep" required maxlength="30">
+                    
+                    <mat-error 
+                        *ngIf= "dadosCepForm.controls['Cep'].hasError('required') ||
+                        dadosCepForm.controls['Cep'].hasError('maxlength')">
+                        
+                        CEP - É obrigatório e deve ter no máximo 8 caracteres.
+                    </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field>
+                <mat-label>COMPLEMENTO</mat-label>
+                <input matInput formControlName="Complemento" maxlength="30">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>BAIRRO</mat-label>
+                <input matInput formControlName="Bairro" maxlength="30">
+            </mat-form-field>
+        </div>        
+
+        <div>
+            <mat-form-field>
+                <mat-label>LOCALIDADE</mat-label>
+                <input matInput formControlName="Localidade" required maxlength="30">
+            </mat-form-field>
+        </div>
+        
+        <div>
+            <mat-form-field>
+                <mat-label>UF</mat-label>
+                <input matInput formControlName="UF" maxlength="30">
+            </mat-form-field>
+        </div>
+
+    </div>
+
+    <div>
+        <button mat-raised-button [disabled]="!dadosCepForm.valid">Enviar</button>
+    </div>
+</form>
