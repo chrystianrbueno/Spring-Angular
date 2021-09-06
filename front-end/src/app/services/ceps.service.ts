@@ -21,4 +21,8 @@ export class CepsService {
   public setAddress(cep: Endereco){
     return this.api.post<Endereco>(`${CEPS_API_URL}/add`,cep)
   }
+
+  public deleteAddress(id: number){
+    return this.api.delete(`${CEPS_API_URL}/delete/${id}`);
+  }
 }

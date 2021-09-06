@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Endereco } from 'src/app/models/cep.model';
 
 import { CepsService } from 'src/app/services/ceps.service';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ceps-listar',
@@ -11,10 +11,10 @@ import { CepsService } from 'src/app/services/ceps.service';
 })
 export class CepsListarComponent implements OnInit {
   
-  colunas: string [] = ['Cep', 'Logradouro'];
+  colunas: string [] = ['Cep', 'Logradouro', 'Complemento', 'Bairro', 'Localidade', 'UF' ];
   enderecos: Endereco[] = [];
 
-  constructor(private cepsService: CepsService) { }
+  constructor(private cepsService: CepsService, private router: Router) { }
 
   ngOnInit() : void{
     this.cepsService.getAllAddressess().subscribe(
@@ -29,5 +29,17 @@ export class CepsListarComponent implements OnInit {
     );
   }
 
+  deleteAddress(id: number){
+    this.cepsService.deleteAddress(id).subscribe(
+      dados => {
+        console.log("Delete sucessful");
+        console.log(dados);
+        this.ngOnInit();
+      },
+      erro => {
+        console.log(erro);
+      }
+    )
+  }
 
 }

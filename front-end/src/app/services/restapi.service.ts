@@ -18,4 +18,8 @@ export class RestapiService {
   public post<T>(url: string, dados: any): Observable<T>{
     return this.http.post<T>(url, dados).pipe(catchError(tratadorDeErros));
   }
+
+  public delete<T>(url: string){
+    return this.http.delete(url).pipe(catchError(tratadorDeErros));
+  }
 }
