@@ -16,5 +16,6 @@ public interface AddressRepository extends CrudRepository<AddressEntity, Long> {
 	public AddressEntity findByZipCode(String zipCode);
 
 	public List<AddressEntity> findAll();
-
+	
+	public AddressEntity findById(long id);
 }

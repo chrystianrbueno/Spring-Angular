@@ -25,7 +25,13 @@
             <th mat-header-cell *matHeaderCellDef>UF</th>
             <td mat-cel *matCellDef="let endereco">{{endereco.UF}}</td>
         </ng-container>
-        <tr mat-header-row *matHeaderRowDef="colunas" ></tr>
-        <tr mat-row *matRowDef="let row; let endereco; columns: colunas" (click)="deleteAddress(endereco.id)"></tr>
+        <ng-container matColumnDef="ACTIONS" >
+            <th mat-header-cell *matHeaderCellDef >Actions</th>
+            <td mat-cel class ="material-icons" *matCellDef="let endereco">
+                <span (click)="deleteAddress(endereco.id)">delete</span>
+                <span (click)="editAddress(endereco.id)">mode_edit</span>
+        </ng-container>
+       <tr mat-header-row *matHeaderRowDef="colunas" ></tr>
+       <tr mat-row *matRowDef="let row; columns: colunas"></tr>
     </table>
 </div>

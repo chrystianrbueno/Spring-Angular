@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class CepsListarComponent implements OnInit {
   
-  colunas: string [] = ['Cep', 'Logradouro', 'Complemento', 'Bairro', 'Localidade', 'UF' ];
+  colunas: string [] = ['Cep', 'Logradouro', 'Complemento', 'Bairro', 'Localidade', 'UF', 'ACTIONS' ];
   enderecos: Endereco[] = [];
 
   constructor(private cepsService: CepsService, private router: Router) { }
@@ -32,7 +32,7 @@ export class CepsListarComponent implements OnInit {
   deleteAddress(id: number){
     this.cepsService.deleteAddress(id).subscribe(
       dados => {
-        console.log("Delete sucessful");
+        console.log("Delete successful");
         console.log(dados);
         this.ngOnInit();
       },
@@ -40,6 +40,10 @@ export class CepsListarComponent implements OnInit {
         console.log(erro);
       }
     )
+  }
+
+  editAddress(id: number){
+      this.router.navigate([`ceps/editar/${id}`]);
   }
 
 }

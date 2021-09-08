@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import com.example.newViaCep.entity.AddressEntity;
 import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 
@@ -26,16 +27,17 @@ public class JacksonCustomAddressEntitySerializer extends StdSerializer<AddressE
 
 	@Override
 	public void serialize(AddressEntity address, JsonGenerator jgen, SerializerProvider provider) throws IOException {
-		
+	
 		jgen.writeStartObject();
-
+		jgen.writeStringField("id", address.getId().toString());
 		jgen.writeStringField("Cep", address.getZipCode());
 		jgen.writeStringField("Logradouro", address.getPublicPlace());
 		jgen.writeStringField("Complemento", address.getComplement());
 		jgen.writeStringField("Bairro", address.getDistrict());
 		jgen.writeStringField("Localidade", address.getLocation());
 		jgen.writeStringField("UF", address.getFederativeUnit());
-	
+
 		jgen.writeEndObject();
+		
 	}
 }

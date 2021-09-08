@@ -16,7 +16,7 @@ export class CepsCadastrarComponent implements OnInit {
     Complemento: [''],
     Bairro: [''],
     Localidade: ['',[Validators.required, Validators.maxLength(30)]],
-    UF: ['']
+    UF: [''],
   });
 
   constructor(private fb: FormBuilder,private router: Router, private cepService: CepsService) { }

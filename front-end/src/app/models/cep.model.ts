@@ -1,4 +1,5 @@
 export interface Endereco {
+    id:          string;   
     Cep:         string;
     Logradouro:  string;
     Complemento: string;

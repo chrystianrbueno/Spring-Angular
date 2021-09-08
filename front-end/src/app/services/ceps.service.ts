@@ -18,6 +18,10 @@ export class CepsService {
     return this.api.get<Endereco>(`${CEPS_API_URL}/${cep}`)
   }
 
+  public getAddressById(id: number){
+    return this.api.get<Endereco>(`${CEPS_API_URL}/id/${id}`)
+  }
+
   public setAddress(cep: Endereco){
     return this.api.post<Endereco>(`${CEPS_API_URL}/add`,cep)
   }
